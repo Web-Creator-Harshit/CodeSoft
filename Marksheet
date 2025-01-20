@@ -1,0 +1,221 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+public class StdGrade extends JFrame 
+{
+    
+    Button b;
+    TextField t1,t2,t3,t4,t5,st1,st2,st3,st4,tl7,tl8,gt;
+    Label l1,l2,l3,l4,l5,l6,sn,sm,s1,s2,s3,s4,l7,l8,gl;
+    
+StdGrade()
+{
+    Container c = getContentPane();
+    c.setLayout(null);
+    c.setBackground(Color.GRAY);
+
+    l1 = new Label("MARKSHEET");
+    l1.setForeground(Color.WHITE);
+    l1.setFont(new Font("times new roman",Font.BOLD,36));
+    l1.setBounds(690,0,300,50);
+
+
+    l2 = new Label("NAME : ");
+    l2.setForeground(Color.WHITE);
+    l2.setFont(new Font("times new roman",Font.BOLD,16));
+    l2.setBounds(50,50,100,20);
+
+
+    l3 = new Label("FATHER's NAME : ");
+    l3.setForeground(Color.WHITE);
+    l3.setFont(new Font("times new roman",Font.BOLD,16));
+    l3.setBounds(50,80,160,20);
+
+
+    l4 = new Label("MOTHER's NAME : ");
+    l4.setForeground(Color.WHITE);
+    l4.setFont(new Font("times new roman",Font.BOLD,16));
+    l4.setBounds(50,110,160,20);
+
+
+    l5 = new Label("COLLEGE's NAME : ");
+    l5.setForeground(Color.WHITE);
+    l5.setFont(new Font("times new roman",Font.BOLD,16));
+    l5.setBounds(50,140,160,20);
+
+
+    l6 = new Label("ROLL No. : ");
+    l6.setForeground(Color.WHITE);
+    l6.setFont(new Font("times new roman",Font.BOLD,16));
+    l6.setBounds(50,170,150,20);
+
+
+    sn = new Label("SUBJECT NAME");
+    sn.setForeground(Color.WHITE);
+    sn.setFont(new Font("times new roman",Font.BOLD,16));
+    sn.setBounds(50,220,150,20);
+
+
+    sm = new Label("MARKS OBTAINED (out of 100)");
+    sm.setForeground(Color.WHITE);
+    sm.setFont(new Font("times new roman",Font.BOLD,16));
+    sm.setBounds(220,220,300,20);
+
+
+    s1 = new Label("ENGLISH");
+    s1.setForeground(Color.WHITE);
+    s1.setFont(new Font("times new roman",Font.BOLD,16));
+    s1.setBounds(50,250,150,20);
+
+
+    s2 = new Label("CHEMISTRY");
+    s2.setForeground(Color.WHITE);
+    s2.setFont(new Font("times new roman",Font.BOLD,16));
+    s2.setBounds(50,280,150,20);
+
+
+    s3 = new Label("MATHEMATICS");
+    s3.setForeground(Color.WHITE);
+    s3.setFont(new Font("times new roman",Font.BOLD,16));
+    s3.setBounds(50,310,150,20);
+
+
+    s4 = new Label("COMPUTER SCIENCE");
+    s4.setForeground(Color.WHITE);
+    s4.setFont(new Font("times new roman",Font.BOLD,16));
+    s4.setBounds(50,340,180,20);
+
+
+    t1 = new TextField("XYZ");
+    t1.setBounds(220,50,150,20);
+
+    t2 = new TextField("ABC");
+    t2.setBounds(220,80,150,20);
+
+    t3 = new TextField("MNO");
+    t3.setBounds(220,110,150,20);
+
+    t4 = new TextField("KV");
+    t4.setBounds(220,140,150,20);
+
+    t5 = new TextField("01");
+    t5.setBounds(220,170,150,20);
+
+    st1 = new TextField();
+    st1.setBounds(230,250,140,20);
+
+    st2 = new TextField();
+    st2.setBounds(230,280,140,20);
+
+    st3 = new TextField();
+    st3.setBounds(230,310,140,20);
+
+    st4 = new TextField();
+    st4.setBounds(230,340,140,20);
+
+    l7 = new Label("Total :");
+    l7.setForeground(Color.WHITE);
+    l7.setFont(new Font("times new roman",Font.BOLD,16));
+    l7.setBounds(50,400,100,20);
+
+    b = new Button("Print");
+    b.setForeground(Color.WHITE);
+    b.setBackground(Color.BLUE);
+    b.setFont(new Font("times new roman",Font.BOLD,16));
+    b.setBounds(800,500,100,50);
+
+    tl7 = new TextField();
+    tl7.setBounds(230,400,140,20);
+
+    l8 = new Label("Percentage : ");
+    l8.setForeground(Color.WHITE);
+    l8.setFont(new Font("times new roman",Font.BOLD,16));
+    l8.setBounds(450,400,100,20);
+
+    tl8 = new TextField();
+    tl8.setBounds(570,400,140,20);
+
+    gl = new Label("Grade : ");
+    gl.setForeground(Color.WHITE);
+    gl.setFont(new Font("times new roman",Font.BOLD,16));
+    gl.setBounds(750,400,100,20);
+
+    gt = new TextField();
+    gt.setBounds(850,400,140,20);
+
+    c.add(l1);
+    c.add(l2);
+    c.add(l3);
+    c.add(l4);
+    c.add(l5);
+    c.add(l6);
+    c.add(t1);
+    c.add(t2);
+    c.add(t3);
+    c.add(t4);
+    c.add(t5);
+    c.add(sn);
+    c.add(sm);
+    c.add(s1);
+    c.add(s2);
+    c.add(s3);
+    c.add(s4);
+    c.add(st1);
+    c.add(st2);
+    c.add(st3);
+    c.add(st4);
+    c.add(l7);
+    c.add(tl7);
+    c.add(l8);
+    c.add(tl8);
+    c.add(gl);
+    c.add(gt);
+    c.add(b);
+
+    setSize(800,800);
+    setTitle("MARKSHEET");
+    setVisible(true);
+
+    b.addActionListener((new ActionListener() 
+    {
+        @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                int num1=Integer.parseInt(st1.getText());
+                int num2=Integer.parseInt(st2.getText());
+                int num3=Integer.parseInt(st3.getText());
+                int num4=Integer.parseInt(st4.getText());
+                tl7.setText(""+(num1+num2+num3+num4));
+                tl8.setText(""+(((num1+num2+num3+num4)/4)));
+
+            if((((num1+num2+num3+num4)/4))<=45)
+            {
+                gt.setText("D");
+            }
+            else if ((((num1+num2+num3+num4)/4))>=46 && (((num1+num2+num3+num4)/4))<=55)
+            {
+                gt.setText("C");
+            }
+            else if ((((num1+num2+num3+num4)/4))>=56 && (((num1+num2+num3+num4)/4))<=65)
+            {
+                gt.setText("B");
+            }
+            else if ((((num1+num2+num3+num4)/4))>=66 && (((num1+num2+num3+num4)/4))<=75)
+            {
+                gt.setText("A");
+            }
+            else 
+            {
+                gt.setText("A+");
+            }
+            }
+
+    }));
+}
+    public static void main(String[] args) 
+    {
+        new StdGrade();
+    }
+}

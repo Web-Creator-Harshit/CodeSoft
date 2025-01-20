@@ -1,0 +1,312 @@
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*;
+
+
+public class Currency extends JFrame
+{
+    JTextField Dtext, Rtext,Dtext2,Rtext2;
+    JButton RButton,DButton;
+    ButtonListener buttonListener;
+    JLabel headlabel,RLabel,DLabel;
+    JComboBox comboBox1,comboBox2;
+    Currency()
+    {
+        Container c = getContentPane();
+        c.setLayout(null);
+        c.setBackground(Color.BLACK);
+    
+    
+        headlabel = new JLabel("CURRENCY CONVERTER");
+        headlabel.setForeground(Color.WHITE);
+        headlabel.setFont(new Font("times new roman",Font.BOLD,36));
+        headlabel.setBounds(550,0,600,100);
+    
+    
+        DLabel= new JLabel("Convert Currency From Country.");
+        DLabel.setForeground(Color.WHITE);
+        DLabel.setFont(new Font("times new roman",Font.BOLD,24));
+        DLabel.setBounds(130,190,400,50);
+    
+    
+        RLabel= new JLabel("Convert Currency To Country.");
+        RLabel.setForeground(Color.WHITE);
+        RLabel.setFont(new Font("times new roman",Font.BOLD,24));
+        RLabel.setBounds(830,190,400,50);
+    
+    
+        String[] From = {"Indian Rupee (INR)", "US Dollar (USD)", "Canadian Dollar (CAD)", "Kuwaiti Dinar (KWD)", "British Pound (GBP)"};
+        comboBox1 = new JComboBox(From);
+        comboBox1.setBounds(130,300,340,50);
+    
+    
+        String[] To = {"Indian Rupee (INR)", "US Dollar (USD)", "Canadian Dollar (CAD)", "Kuwaiti Dinar (KWD)", "British Pound (GBP)"};
+        comboBox2 = new JComboBox(To);
+        comboBox2.setBounds(830,300,320,50);
+    
+    
+        Dtext = new JTextField(5);
+        Dtext.setBounds(130,400,340,50);
+    
+    
+        Rtext = new JTextField(5);
+        Rtext.setBounds(830,400,320,50);
+    
+    
+        DButton=new JButton("CONVERT");
+        DButton.setBounds(590,350,150,50);
+        DButton.setBackground(Color.LIGHT_GRAY);
+        buttonListener = new ButtonListener();
+        DButton.addActionListener(buttonListener);
+    
+    
+        add(headlabel);
+        add(DLabel);
+        add(RLabel);
+        add(comboBox1);
+        add(comboBox2);
+        add(Dtext);
+        add(Rtext);
+        add(DButton);
+    
+    
+        setSize(1600,800);
+        setTitle("Currency Converter");
+        setLayout(null);
+        setVisible(true);
+    }
+    
+    
+    class ButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            double amount = Double.parseDouble(Dtext.getText());
+            String from = (String) comboBox1.getSelectedItem();
+            String to = (String) comboBox2.getSelectedItem();
+            double convertedAmount = amount;
+        
+        
+            if (from.equals("Indian Rupee (INR)") && to.equals("US Dollar (USD)") || from.equals("Indian Rupee (INR)") && to.equals("Canadian Dollar (CAD)") || from.equals("Indian Rupee (INR)") && to.equals("Kuwaiti Dinar (KWD)")  || from.equals("Indian Rupee (INR)") && to.equals("Kuwaiti Dinar (KWD)") ) 
+            {
+                if(from.equals("Indian Rupee (INR)") && to.equals("US Dollar (USD)"))
+                {
+                    convertedAmount = amount / 86.58 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else if (from.equals("Indian Rupee (INR)") && to.equals("Canadian Dollar (CAD)") ) 
+                {
+                    convertedAmount = amount / 60.30 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                } 
+            
+            
+                else if (from.equals("Indian Rupee (INR)") && to.equals("Kuwaiti Dinar (KWD)") ) 
+                {
+                    convertedAmount = amount / 280.59 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else if (from.equals("Indian Rupee (INR)") && to.equals("British Pound (GBP)") ) 
+                {
+                    convertedAmount = amount / 105.84 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else
+            {
+                convertedAmount = amount ;
+                String str1 = String.valueOf(convertedAmount);
+                Rtext.setText(str1);
+            }
+            }
+            
+            
+            else if (from.equals("US Dollar (USD)") && to.equals("Indian Rupee (INR)") || from.equals("US Dollar (USD)") && to.equals("Canadian Dollar (CAD)") || from.equals("US Dollar (USD)") && to.equals("Kuwaiti Dinar (KWD)")  || from.equals("US Dollar (USD)") && to.equals("Kuwaiti Dinar (KWD)") ) 
+            {
+                if(from.equals("US Dollar (USD)") && to.equals("Indian Rupee (INR)"))
+                {
+                    convertedAmount = amount * 86.58 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else if (from.equals("US Dollar (USD)") && to.equals("Canadian Dollar (CAD)") ) 
+                {
+                    convertedAmount = amount * 1.43 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                } 
+            
+            
+                else if (from.equals("US Dollar (USD)") && to.equals("Kuwaiti Dinar (KWD)") ) 
+                {
+                    convertedAmount = amount / 3.238 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else if (from.equals("US Dollar (USD)") && to.equals("British Pound (GBP)") ) 
+                {
+                    convertedAmount = amount / 1.22 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else
+            {
+                convertedAmount = amount ;
+                String str1 = String.valueOf(convertedAmount);
+                Rtext.setText(str1);
+            }
+            }
+        
+        
+            else if (from.equals("Canadian Dollar (CAD)") && to.equals("Indian Rupee (INR)") || from.equals("Canadian Dollar (CAD)") && to.equals("US Dollar (USD)") || from.equals("Canadian Dollar (CAD)") && to.equals("Kuwaiti Dinar (KWD)")  || from.equals("Canadian Dollar (CAD)") && to.equals("Kuwaiti Dinar (KWD)") ) 
+            {
+                if(from.equals("Canadian Dollar (CAD)") && to.equals("Indian Rupee (INR)"))
+                {
+                    convertedAmount = amount * 60.30 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else if (from.equals("Canadian Dollar (CAD)") && to.equals("US Dollar (USD)") ) 
+                {
+                    convertedAmount = amount * 1.22 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                } 
+            
+            
+                else if (from.equals("Canadian Dollar (CAD)") && to.equals("Kuwaiti Dinar (KWD)") ) 
+                {
+                    convertedAmount = amount / 4.65 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else if (from.equals("Canadian Dollar (CAD)") && to.equals("British Pound (GBP)") ) 
+                {
+                    convertedAmount = amount / 1.75 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else
+            {
+                convertedAmount = amount ;
+                String str1 = String.valueOf(convertedAmount);
+                Rtext.setText(str1);
+            }
+            }
+        
+        
+            else if (from.equals("Kuwaiti Dinar (KWD)") && to.equals("Indian Rupee (INR)") || from.equals("Kuwaiti Dinar (KWD)") && to.equals("Canadian Dollar (CAD)") || from.equals("Kuwaiti Dinar (KWD)") && to.equals("Kuwaiti Dinar (KWD)")  || from.equals("Kuwaiti Dinar (KWD)") && to.equals("US Dollar (USD)") ) 
+            {
+                if(from.equals("Kuwaiti Dinar (KWD)") && to.equals("Indian Rupee (INR)"))
+                {
+                    convertedAmount = amount * 280.68 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else if (from.equals("Kuwaiti Dinar (KWD)") && to.equals("Canadian Dollar (CAD)") ) 
+                {
+                    convertedAmount = amount * 4.65 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                } 
+            
+            
+                else if (from.equals("Kuwaiti Dinar (KWD)") && to.equals("US Dollar (USD)") ) 
+                {
+                    convertedAmount = amount * 3.238 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else if (from.equals("Kuwaiti Dinar (KWD)") && to.equals("British Pound (GBP)") ) 
+                {
+                    convertedAmount = amount * 2.63 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else
+            {
+                convertedAmount = amount ;
+                String str1 = String.valueOf(convertedAmount);
+                Rtext.setText(str1);
+            }
+            }
+        
+        
+            else 
+            {
+                if(from.equals("British Pound (GBP)") && to.equals("Indian Rupee (INR)"))
+                {
+                    convertedAmount = amount * 105.84 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else if (from.equals("British Pound (GBP)") && to.equals("Canadian Dollar (CAD)") ) 
+                {
+                    convertedAmount = amount * 1.75 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                } 
+            
+            
+                else if (from.equals("British Pound (GBP)") && to.equals("Kuwaiti Dinar (KWD)") ) 
+                {
+                    convertedAmount = amount / 2.63 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else if (from.equals("British Pound (GBP)") && to.equals("US Dollar (USD)") ) 
+                {
+                    convertedAmount = amount * 1.22 ;
+                    String str1 = String.valueOf(convertedAmount);
+                    Rtext.setText(str1);
+                }
+            
+            
+                else
+            {
+                convertedAmount = amount ;
+                String str1 = String.valueOf(convertedAmount);
+                Rtext.setText(str1);
+            }
+            }
+        
+        
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        new Currency();
+    }
+}
